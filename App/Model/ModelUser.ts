@@ -37,7 +37,7 @@ UserModel.init(
     },
     image: {
       type: DataTypes.BLOB,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
