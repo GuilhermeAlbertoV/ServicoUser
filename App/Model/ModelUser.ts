@@ -1,7 +1,16 @@
 import { DataTypes, Model } from 'sequelize';
 import connectionDB from '../DB/connectionDB';
 
-class UserModel extends Model {}
+class UserModel extends Model {
+  public id!: number;
+  public username!: string;
+  public name!: string;
+  public lastname!: string;
+  public email!: string;
+  public password!: string;
+  public age!: number;
+  public image!: Buffer;
+}
 
 UserModel.init(
   {
@@ -19,7 +28,7 @@ UserModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    nameLast: {
+    lastname: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -46,3 +55,5 @@ UserModel.init(
     tableName: 'usuarios',
   },
 );
+
+export default UserModel;

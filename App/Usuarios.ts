@@ -5,5 +5,5 @@ export interface Usuarios {
   email: string;
   password: string;
   age: number;
-  image: string;
+  image: Buffer;
 }

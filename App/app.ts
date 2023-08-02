@@ -1,11 +1,26 @@
+import bodyParser from 'body-parser';
 import Express from 'express';
 import connectionDB from './DB/connectionDB';
+import routers from './rotas/rotasUser';
 
 const server = Express();
 class App {
   constructor() {
     this.servidor();
     this.database();
+    this.serverConfigs();
+    this.rotas();
+  }
+
+  rotas() {
+    server.use('/usuarios', routers);
+    server.use('/autenticacao', routers);
+    server.use('/usuarios', routers);
+  }
+
+  serverConfigs() {
+    server.use(bodyParser.json());
+    server.use(bodyParser.urlencoded({ extended: true }));
   }
 
   database() {
